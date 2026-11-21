@@ -1,16 +1,51 @@
 # SORU DOSYASI
+
 # Her satıra bir soru yazın:   Soru?*Cevap
+
 # Birden fazla kabul edilen cevap varsa | ile ayırın:   Soru?*Cevap1|Cevap2
+
 # Büyük/küçük harf ve Türkçe karakterler (ç, ğ, ı, ö, ş, ü) fark etmez.
+
 # # ile başlayan satırlar yok sayılır.
 
+
+
 Dün yeni bir kitap aldım.*I bought a new book yesterday.
+
 Yarın hava çok güneşli olacak.*The weather will be very sunny tomorrow.|It will be very sunny tomorrow.
+
 Her sabah bir bardak kahve içerim.*I drink a cup of coffee every morning.
+
 Geçen yaz Antalya'ya gittik.*We went to Antalya last summer.
+
 Şu anda akşam yemeği pişiriyorum.*I am cooking dinner right now.|I'm cooking dinner now.
+
 Benim arabam senin arabandan daha hızlı.*My car is faster than your car.|My car is faster than yours.
+
 Yarın erken uyanmam gerekiyor.*I need to wake up early tomorrow.|I have to wake up early tomorrow.
+
 Hafta sonu arkadaşlarımla buluşacağım.*I will meet my friends at the weekend.|I am going to meet my friends on the weekend.
+
 Bu elma çok tatlı.*This apple is very sweet.
+
 Dün gece erken uyudum çünkü çok yorgundum.*I slept early last night because I was very tired.
+
+O çok iyi yüzebilir.*He can swim very well.|She can swim very well.
+
+İşe her gün otobüsle gidiyorum.*I go to work by bus every day.
+
+Dün sinemada güzel bir film izledik.*We watched a good movie at the cinema yesterday.|We watched a nice film at the cinema yesterday.
+
+Şu an dışarıda yağmur yağıyor.*It is raining outside right now.|It's raining outside now.
+
+Kardeşim benden daha uzun.*My brother is taller than me.|My sibling is taller than me.
+
+Gelecek hafta yeni bir telefona ihtiyacım olacak.*I will need a new phone next week.
+
+Bu çanta çok ağır.*This bag is very heavy.
+
+Akşamları genellikle kitap okurum.*I usually read a book in the evenings.|I usually read books in the evenings.
+
+Dün akşam pizza yedik.*We ate pizza last night.|We had pizza yesterday evening.
+
+Yarın sabah saat sekizde kahvaltı yapacağız.*We will have breakfast at eight o'clock tomorrow morning.|We are going to have breakfast at 8 am tomorrow morning.

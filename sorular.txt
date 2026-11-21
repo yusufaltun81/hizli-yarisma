@@ -4,13 +4,13 @@
 # Büyük/küçük harf ve Türkçe karakterler (ç, ğ, ı, ö, ş, ü) fark etmez.
 # # ile başlayan satırlar yok sayılır.
 
-Dün sinemaya gittik ve çok güzel bir film izledik.*We went to the cinema yesterday and watched a very nice movie.|We went to the movies yesterday and watched a great film.
-Yarın hava yağmurlu olacak, bu yüzden şemsiyeni almalısın.*It will be rainy tomorrow, so you should take your umbrella.|Tomorrow it will rain, so you must take your umbrella.
-Kahvaltıda genellikle peynir, zeytin ve yumurta yerim.*I usually eat cheese, olives, and eggs for breakfast.
-En sevdiğim mevsim yazdır çünkü yüzmeyi çok seviyorum.*My favorite season is summer because I love swimming very much.|My favourite season is summer because I like swimming a lot.
-Geçen hafta sonu büyükannemi ve büyükbabamı ziyaret ettim.*I visited my grandmother and grandfather last weekend.|I visited my grandparents last weekend.
-Bu çanta çok ağır, bana yardım edebilir misin?*This bag is too heavy, can you help me?|This bag is very heavy, could you help me?
-Kardeşim benden daha uzun ama ben ondan daha hızlı koşabiliyorum.*My brother is taller than me, but I can run faster than him.|My sibling is taller than me, but I can run faster than them.
-İngilizce öğrenmek için her gün pratik yapmalıyız.*We should practice every day to learn English.|We must practise every day to learn English.
-Saat kaçta buluşacağız?*What time are we going to meet?|What time will we meet?
-Şu anda kitap okuyorum ve müzik dinliyorum.*I am reading a book and listening to music right now.|I'm reading a book and listening to music at the moment.
+Dün yeni bir kitap aldım.*I bought a new book yesterday.
+Yarın hava çok güneşli olacak.*The weather will be very sunny tomorrow.|It will be very sunny tomorrow.
+Her sabah bir bardak kahve içerim.*I drink a cup of coffee every morning.
+Geçen yaz Antalya'ya gittik.*We went to Antalya last summer.
+Şu anda akşam yemeği pişiriyorum.*I am cooking dinner right now.|I'm cooking dinner now.
+Benim arabam senin arabandan daha hızlı.*My car is faster than your car.|My car is faster than yours.
+Yarın erken uyanmam gerekiyor.*I need to wake up early tomorrow.|I have to wake up early tomorrow.
+Hafta sonu arkadaşlarımla buluşacağım.*I will meet my friends at the weekend.|I am going to meet my friends on the weekend.
+Bu elma çok tatlı.*This apple is very sweet.
+Dün gece erken uyudum çünkü çok yorgundum.*I slept early last night because I was very tired.

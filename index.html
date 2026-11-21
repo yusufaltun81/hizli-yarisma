@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hızlı Yarışma</title>
+<style>
+:root{--bg:#f4f1ec;--kart:#fff;--yazi:#1f2430;--soluk:#6b7280;--vurgu:#c2410c;--iyi:#15803d;--kotu:#b91c1c;--cizgi:#e5e0d8}
+@media(prefers-color-scheme:dark){:root{--bg:#14161b;--kart:#1e222a;--yazi:#eceff4;--soluk:#9aa3b2;--vurgu:#fb923c;--iyi:#4ade80;--kotu:#f87171;--cizgi:#2d333d}}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--yazi)}
+header{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;max-width:960px;margin:0 auto}
+h1{font-size:22px;margin:0}#online{color:var(--soluk);font-size:14px}
+main{max-width:960px;margin:0 auto;padding:0 20px 30px;display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:800px){main{grid-template-columns:2fr 1fr}}
+.kart{background:var(--kart);border:1px solid var(--cizgi);border-radius:14px;padding:20px}
+#soru{font-size:24px;font-weight:700;line-height:1.35;margin:8px 0 14px;min-height:64px}
+#ipucu{font-family:Consolas,monospace;font-size:22px;letter-spacing:2px;color:var(--vurgu);min-height:30px;margin-bottom:12px}
+.cubuk{height:8px;background:var(--cizgi);border-radius:6px;overflow:hidden;margin-bottom:14px}#cubukIc{height:100%;width:0;background:var(--vurgu)}
+form{display:flex;gap:8px}input{flex:1;font-size:18px;padding:10px 12px;border:1px solid var(--cizgi);border-radius:10px;background:var(--bg);color:var(--yazi);min-width:0}
+button{font-size:16px;padding:10px 16px;border:0;border-radius:10px;background:var(--vurgu);color:#fff;cursor:pointer}
+button.ikincil{background:transparent;color:var(--soluk);padding:4px 8px;font-size:13px}
+#sonuc{margin-top:14px;font-weight:600;min-height:24px}.iyi{color:var(--iyi)}.kotu{color:var(--kotu)}
+h2{font-size:16px;margin:0 0 10px}ol,ul{margin:0;padding-left:20px}li{margin:4px 0}li.ben{font-weight:700;color:var(--vurgu)}
+ul{list-style:none;padding:0;color:var(--soluk);font-size:14px}
+#giris{max-width:360px;margin:60px auto}#giris form{margin-top:12px}.gizli{display:none!important}
+</style>
+</head>
+<body>
+<div id="giris" class="kart gizli">
+  <h1>Hızlı Yarışma</h1>
+  <p>Soruları herkesten önce cevapla, puanı kap. Takma adını yaz:</p>
+  <form id="adForm"><input id="adKutu" maxlength="20" placeholder="Takma adın" aria-label="Takma ad" required><button>Başla</button></form>
+</div>
+<div id="oyun" class="gizli">
+<header><h1>Hızlı Yarışma</h1><div><span id="online"></span> <button class="ikincil" id="adDegis">Adı değiştir</button></div></header>
+<main>
+  <section class="kart">
+    <div id="durum" class="soluk">Bağlanıyor…</div>
+    <div id="soru"></div><div id="ipucu"></div>
+    <div class="cubuk"><div id="cubukIc"></div></div>
+    <form id="form"><input id="cevap" autocomplete="off" placeholder="Cevabını yaz ve Enter'a bas" aria-label="Cevap"><button>Gönder</button></form>
+    <div id="sonuc" aria-live="polite"></div>
+    <button id="devam" class="gizli" style="margin-top:10px">Devam et</button>
+  </section>
+  <aside>
+    <div class="kart" style="margin-bottom:16px"><h2>Puan tablosu</h2><ol id="tablo"></ol></div>
+    <div class="kart"><h2>Son olaylar</h2><ul id="gunluk"></ul></div>
+  </aside>
+</main>
+</div>
+<script>
+(function(){
+'use strict';
+var $=function(i){return document.getElementById(i)};
+function oku(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function yaz(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+var kimlik=oku('yarisma_id')||(window.crypto&&crypto.randomUUID?crypto.randomUUID():'k'+Math.random().toString(36).slice(2)+Date.now().toString(36));
+yaz('yarisma_id',kimlik);
+var nick=oku('yarisma_nick'),kaynak=null,benim='',bitis=0,sure=30,aktif=false;
+
+function giris(){$('oyun').classList.add('gizli');$('giris').classList.remove('gizli');$('adKutu').value=nick||'';$('adKutu').focus();if(kaynak){kaynak.close();kaynak=null}}
+$('adForm').onsubmit=function(e){e.preventDefault();nick=$('adKutu').value.trim().slice(0,20);if(!nick)return;yaz('yarisma_nick',nick);baslat()};
+$('adDegis').onclick=giris;
+
+function sonuc(m,s){var e=$('sonuc');e.textContent=m;e.className=s||''}
+function gunluk(m){var li=document.createElement('li');li.textContent=m;var u=$('gunluk');u.insertBefore(li,u.firstChild);while(u.children.length>6)u.removeChild(u.lastChild)}
+function tablo(l){var o=$('tablo');o.textContent='';l.forEach(function(k){var li=document.createElement('li');li.textContent=k.nick+' - '+k.puan;if(k.pub===benim)li.className='ben';o.appendChild(li)});if(!l.length)o.textContent='Henüz puan yok'}
+function soruGoster(s,kalan,toplam,ipucu){aktif=true;sure=toplam;bitis=Date.now()+kalan;$('soru').textContent=s;$('ipucu').textContent=ipucu||'';$('durum').textContent='Soru';sonuc('');$('devam').classList.add('gizli');$('cevap').focus()}
+function bekle(m){aktif=false;bitis=0;$('cubukIc').style.width='0';$('durum').textContent=m}
+setInterval(function(){if(!aktif)return;var k=Math.max(0,bitis-Date.now());$('cubukIc').style.width=(k/(sure*1000)*100)+'%';$('durum').textContent='Kalan süre: '+Math.ceil(k/1000)+' sn'},100);
+
+function baslat(){
+  $('giris').classList.add('gizli');$('oyun').classList.remove('gizli');
+  if(kaynak)kaynak.close();
+  kaynak=new EventSource('/olaylar?id='+encodeURIComponent(kimlik)+'&nick='+encodeURIComponent(nick));
+  function d(o,f){kaynak.addEventListener(o,function(e){f(JSON.parse(e.data))})}
+  d('durum',function(x){benim=x.pub;tablo(x.puanlar);
+    if(x.durum==='soru')soruGoster(x.soru,x.kalanMs,x.sure,x.ipucu);
+    else if(x.durum==='duraklat'){bekle('Yarışma duraklatıldı');$('devam').classList.remove('gizli')}
+    else{bekle('Yeni soru birazdan geliyor…')}});
+  d('soru',function(x){soruGoster(x.soru,x.sure*1000,x.sure,'')});
+  d('ipucu',function(x){$('ipucu').textContent=x.metin});
+  d('dogru',function(x){bekle('Sıradaki soru birazdan…');var ben=x.pub===benim;sonuc((ben?'Sen buldun! ':x.nick+' buldu! ')+'Cevap: '+x.cevap+' ('+x.sure+' sn)','iyi');gunluk(x.nick+' - '+x.cevap+' ('+x.sure+' sn)')});
+  d('sureDoldu',function(x){bekle('Sıradaki soru birazdan…');sonuc('Süre doldu! Cevap: '+x.cevap,'kotu');gunluk('Süre doldu: '+x.cevap)});
+  d('duraklat',function(){bekle('Yarışma duraklatıldı');$('devam').classList.remove('gizli')});
+  d('puanlar',tablo);
+  d('cevrimici',function(x){$('online').textContent=x.sayi+' kişi çevrimiçi'});
+}
+$('form').onsubmit=function(e){e.preventDefault();var m=$('cevap').value.trim();$('cevap').value='';if(!m||!aktif)return;
+  fetch('/api/cevap',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:kimlik,metin:m})})
+  .then(function(r){return r.json()}).then(function(x){if(x.ok&&!x.dogru)sonuc('Yanlış, tekrar dene','kotu')}).catch(function(){})};
+$('devam').onclick=function(){fetch('/api/devam',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:kimlik})})};
+if(nick)baslat();else giris();
+})();
+</script>
+</body>
+</html>

@@ -4,34 +4,13 @@
 # Büyük/küçük harf ve Türkçe karakterler (ç, ğ, ı, ö, ş, ü) fark etmez.
 # # ile başlayan satırlar yok sayılır.
 
-Türkiye'nin başkenti neresidir?*Ankara
-Dünyanın en büyük okyanusu hangisidir?*Pasifik|Büyük Okyanus
-Bir yılda kaç ay vardır?*12|on iki
-Güneş sisteminin en büyük gezegeni hangisidir?*Jüpiter
-İstanbul'u fetheden Osmanlı padişahı kimdir?*Fatih Sultan Mehmet|II. Mehmet|Fatih
-Suyun kimyasal formülü nedir?*H2O
-Mona Lisa tablosunun ressamı kimdir?*Leonardo da Vinci|Da Vinci|Leonardo
-Türkiye'nin en yüksek dağı hangisidir?*Ağrı Dağı|Ağrı
-Eyfel Kulesi hangi şehirdedir?*Paris
-Türkiye Cumhuriyeti'nin kurucusu kimdir?*Mustafa Kemal Atatürk|Atatürk|Mustafa Kemal
-Bir üçgenin iç açıları toplamı kaç derecedir?*180
-Dünyamızın doğal uydusu nedir?*Ay
-Altının kimyasal simgesi nedir?*Au
-Ayasofya hangi şehirdedir?*İstanbul
-Futbolda bir takım sahada kaç oyuncuyla oynar?*11|on bir
-Hangi hayvan "çölün gemisi" olarak bilinir?*Deve
-Türkiye'nin para birimi nedir?*Türk Lirası|Lira|TL
-Kırmızı gezegen olarak bilinen gezegen hangisidir?*Mars
-Romeo ve Juliet adlı oyunun yazarı kimdir?*Shakespeare|William Shakespeare
-Yetişkin bir insanın vücudunda kaç kemik vardır?*206
-Japonya'nın başkenti neresidir?*Tokyo
-Kırmızı ile sarı karıştırılınca hangi renk elde edilir?*Turuncu
-Bir satranç tahtasında kaç kare vardır?*64
-Bir haftada kaç gün vardır?*7|yedi
-Dünyanın en büyük kıtası hangisidir?*Asya
-Efes Antik Kenti hangi ilimizdedir?*İzmir
-Türkiye'nin en kalabalık şehri neresidir?*İstanbul
-Ankara hangi coğrafi bölgemizdedir?*İç Anadolu
-Bir dakika kaç saniyedir?*60|altmış
-Periyodik tabloda oksijenin simgesi nedir?*O
-Edirne'deki Selimiye Camii'ni hangi mimar yapmıştır?*Mimar Sinan|Sinan
+Dün sinemaya gittik ve çok güzel bir film izledik.*We went to the cinema yesterday and watched a very nice movie.|We went to the movies yesterday and watched a great film.
+Yarın hava yağmurlu olacak, bu yüzden şemsiyeni almalısın.*It will be rainy tomorrow, so you should take your umbrella.|Tomorrow it will rain, so you must take your umbrella.
+Kahvaltıda genellikle peynir, zeytin ve yumurta yerim.*I usually eat cheese, olives, and eggs for breakfast.
+En sevdiğim mevsim yazdır çünkü yüzmeyi çok seviyorum.*My favorite season is summer because I love swimming very much.|My favourite season is summer because I like swimming a lot.
+Geçen hafta sonu büyükannemi ve büyükbabamı ziyaret ettim.*I visited my grandmother and grandfather last weekend.|I visited my grandparents last weekend.
+Bu çanta çok ağır, bana yardım edebilir misin?*This bag is too heavy, can you help me?|This bag is very heavy, could you help me?
+Kardeşim benden daha uzun ama ben ondan daha hızlı koşabiliyorum.*My brother is taller than me, but I can run faster than him.|My sibling is taller than me, but I can run faster than them.
+İngilizce öğrenmek için her gün pratik yapmalıyız.*We should practice every day to learn English.|We must practise every day to learn English.
+Saat kaçta buluşacağız?*What time are we going to meet?|What time will we meet?
+Şu anda kitap okuyorum ve müzik dinliyorum.*I am reading a book and listening to music right now.|I'm reading a book and listening to music at the moment.

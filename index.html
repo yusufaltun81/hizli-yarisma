@@ -56,7 +56,7 @@ function oku(k){try{return localStorage.getItem(k)}catch(e){return null}}
 function yaz(k,v){try{localStorage.setItem(k,v)}catch(e){}}
 var kimlik=oku('yarisma_id')||(window.crypto&&crypto.randomUUID?crypto.randomUUID():'k'+Math.random().toString(36).slice(2)+Date.now().toString(36));
 yaz('yarisma_id',kimlik);
-var nick=oku('yarisma_nick'),kaynak=null,benim='',bitis=0,sure=30,aktif=false;
+var nick=oku('yarisma_nick'),kaynak=null,benim='',bitis=0,sure=30,aktif=false,sonCevap='';
 
 function giris(){$('oyun').classList.add('gizli');$('giris').classList.remove('gizli');$('adKutu').value=nick||'';$('adKutu').focus();if(kaynak){kaynak.close();kaynak=null}}
 $('adForm').onsubmit=function(e){e.preventDefault();nick=$('adKutu').value.trim().slice(0,20);if(!nick)return;yaz('yarisma_nick',nick);baslat()};
@@ -86,10 +86,11 @@ function baslat(){
   d('puanlar',tablo);
   d('cevrimici',function(x){$('online').textContent=x.sayi+' kişi çevrimiçi'});
 }
-$('form').onsubmit=function(e){e.preventDefault();var m=$('cevap').value.trim();$('cevap').value='';if(!m||!aktif)return;
+$('form').onsubmit=function(e){e.preventDefault();var m=$('cevap').value.trim();$('cevap').value='';if(m)sonCevap=m;if(!m||!aktif)return;
   fetch('/api/cevap',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:kimlik,metin:m})})
   .then(function(r){return r.json()}).then(function(x){if(x.ok&&!x.dogru)sonuc('Yanlış, tekrar dene','kotu')}).catch(function(){})};
 $('devam').onclick=function(){fetch('/api/devam',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:kimlik})})};
+$('cevap').addEventListener('keydown',function(e){if((e.ctrlKey||e.metaKey)&&!e.shiftKey&&e.key.toLowerCase()==='z'&&!this.value&&sonCevap){e.preventDefault();this.value=sonCevap;this.select()}});
 if(nick)baslat();else giris();
 })();
 </script>

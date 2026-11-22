@@ -5,7 +5,7 @@ const http = require('http'), fs = require('fs'), path = require('path'), crypto
 // ===== AYARLAR =====
 const PORT = process.env.PORT || 3000;
 const SORU_SURESI = 30;     // saniye
-const SORULAR_ARASI = 5;    // saniye
+const SORULAR_ARASI = 1;    // saniye
 const CEVAPSIZ_LIMIT = 3;   // üst üste bu kadar soru cevapsız kalırsa duraklar
 // ===================
 
